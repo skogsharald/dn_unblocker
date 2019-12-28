@@ -1,0 +1,29 @@
+{
+  "name": "DN: Har du info?",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Plugin för att se DN artiklar utan att betala",
+  "homepage_url": "http://dn.se",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+	  "run_at": "document_start",
+      "matches": [
+        "http://dn.se/*",
+        "http://www.dn.se/*",
+        "https://www.dn.se/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+		"src/inject/inject.js"
+      ]
+    }
+  ]
+}
